@@ -4,6 +4,7 @@ join the lottery contest.Manager who manage this lottery contest pick winner ram
 get all the money.And lottery contest reset for another contest.
 
 Works with the Metamask wallet
+
 Works with ganache local testnetwork
 
 

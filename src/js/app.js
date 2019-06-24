@@ -12,12 +12,12 @@ App = {
       App.web3Provider = web3.currentProvider;
       web3 = new Web3(web3.currentProvider);
     } else {
-      // Specify default instance if no web3 instance provided
       App.web3Provider = new Web3.providers.HttpProvider('http://localhost:7545');
       web3 = new Web3(App.web3Provider);
     }
     return App.initContract();
   },
+  
 
   initContract: function() {
     // Load Lottery Contract
@@ -40,6 +40,7 @@ App = {
 
     // Show User account address on page
     web3.eth.getCoinbase(function(err, account) {
+
       if (err === null) {
         App.account = account;
         useraccount = account;
@@ -57,6 +58,7 @@ App = {
       return lotteryInstance.manager();
     // Check that manager account enable Pickup Winner
     }).then(function(manager){
+
       if(manager != useraccount){
         $('#PickWinner').prop('disabled',true);
       } else {
@@ -92,6 +94,7 @@ App = {
       txtaddress = lotteryInstance.enter({
         from: web3.eth.coinbase,
         value: 1000000000000000000
+        
       }).then(function(data){
         return App.render();
       });
